@@ -1,12 +1,13 @@
-from flask import Flask
 import threading
 import time
 import requests
+from flask import Flask
+import os
 
 # ------------------------------
 # CONFIGURATION
 # ------------------------------
-TARGET_URL = "https://254kenyasafaris.africa/health"  # replace with your main site's /health
+TARGET_URL = "https://your-working-website.com/health"  # Replace with your main site's /health
 PING_INTERVAL = 8 * 60  # 8 minutes in seconds
 
 # ------------------------------
@@ -38,8 +39,9 @@ def start_pinger():
     thread.start()
 
 # ------------------------------
-# START FLASK AND PINGER
+# RUN FLASK APP
 # ------------------------------
 if __name__ == "__main__":
-    start_pinger()       # start the ping thread
-    app.run(debug=True)  # start the Flask app
+    start_pinger()  # Start the background ping thread
+    port = int(os.environ.get("PORT", 5000))  # Use Render's assigned port
+    app.run(host="0.0.0.0", port=port)
