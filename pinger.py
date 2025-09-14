@@ -7,7 +7,7 @@ import os
 # ------------------------------
 # CONFIGURATION
 # ------------------------------
-TARGET_URL = "https://your-working-website.com/health"  # Replace with your main site's /health
+TARGET_URL = "https://254kenyasafaris.africa/health"  # Replace with your main site's /health
 PING_INTERVAL = 8 * 60  # 8 minutes in seconds
 
 # ------------------------------
